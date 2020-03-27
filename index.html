@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Regístrate, es gratis</h1>
+    </header>
+    <div class="container">
+        <div class="container-to-form">
+            <label for="dates-to-send" id="principal-label">Regístrate</label>
+            <form id="dates-to-send">
+                <div class="date">
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name" id="name" minlength="3" maxlength="20" required>
+                </div>
+                <div class="date">
+                    <label for="last-name">Apellido</label>
+                    <input type="text" name="lastName" id="last-name" minlength="3" maxlength="20" required>
+                </div>
+                <div class="date">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="date">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" id="password" minlength="8" required>
+                </div>
+                <div class="date">
+                    <label for="password-repeat">Verifique su contraseña</label>
+                    <input type="password" name="passwordRepeat" id="password-repeat" minlength="8" required>
+                </div>
+                <button id="submit">Enviar datos</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
