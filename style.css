@@ -55,5 +55,12 @@ header {
 #submit {
     width: 100px;
     height: 25px;
+    margin: 0 auto;
+    background-color: #b9b9b9;
+    border: 2px solid #4b4b4b;
     border-radius: 10px;
+    cursor: pointer;
+}
+#submit span {
+    font-size: 12px;
 }

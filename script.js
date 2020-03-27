@@ -1,5 +1,6 @@
 var model = {
     users: [],
+    fields: ['name', 'lastName', 'email', 'password', 'otherPassword'],
     dates: {
         name: document.querySelector('#name'),
         lastName: document.querySelector('#last-name'),
@@ -12,13 +13,12 @@ var model = {
     },
     fieldsAreComplete: function() {
         let test = 0
-        let fields = ['name', 'lastName', 'email', 'password', 'otherPassword']
-        for (let field of fields) {
+        for (let field of this.fields) {
             if (this.dates[field].checkValidity()) {
                 test++
             }
         }
-        return test === fields.length
+        return test === this.fields.length
     },
     datesOfUser: function() {
         return {
@@ -26,6 +26,11 @@ var model = {
             lastName: this.dates.lastName.value,
             email: this.dates.email.value,
             password: this.dates.password.value
+        }
+    },
+    cleanFields: function() {
+        for (let field of this.fields) {
+            this.dates[field].value = ''
         }
     }
 }
@@ -42,6 +47,9 @@ var controller = {
             alert('Las contraseñas no coinciden!')
         }
     },
+    cleanFields: function() {
+        model.cleanFields()
+    },
     init: function() {
         view.init()
     }
@@ -52,6 +60,7 @@ var view = {
     init: function() {
         this.button.addEventListener('click', function() {
             controller.saveDates()
+            controller.cleanFields()
         })
     }
 }
