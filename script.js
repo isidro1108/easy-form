@@ -1,7 +1,7 @@
 var model = {
     users: [],
     fields: ['name', 'lastName', 'email', 'password', 'otherPassword'],
-    dates: {
+    data: {
         name: document.querySelector('#name'),
         lastName: document.querySelector('#last-name'),
         email: document.querySelector('#email'),
@@ -9,40 +9,40 @@ var model = {
         otherPassword: document.querySelector('#password-repeat')
     },
     passwordsAreSame: function() {
-        return this.dates.password.value === this.dates.otherPassword.value
+        return this.data.password.value === this.data.otherPassword.value
     },
     fieldsAreComplete: function() {
         let test = 0
         for (let field of this.fields) {
-            if (this.dates[field].checkValidity()) {
+            if (this.data[field].checkValidity()) {
                 test++
             }
         }
         return test === this.fields.length
     },
-    datesOfUser: function() {
+    dataOfUser: function() {
         return {
-            name: this.dates.name.value,
-            lastName: this.dates.lastName.value,
-            email: this.dates.email.value,
-            password: this.dates.password.value
+            name: this.data.name.value,
+            lastName: this.data.lastName.value,
+            email: this.data.email.value,
+            password: this.data.password.value
         }
     },
     cleanFields: function() {
         for (let field of this.fields) {
-            this.dates[field].value = ''
+            this.data[field].value = ''
         }
     }
 }
 
 var controller = {
-    saveDates: function() {
+    saveData: function() {
         if (model.passwordsAreSame()) {
             if (model.fieldsAreComplete()) {
-                let dates = model.datesOfUser()
-                model.users.push(dates)
+                let data = model.dataOfUser()
+                model.users.push(data)
                 model.cleanFields()
-                alert('Gracias por registrarte ' + dates.name + '!!')
+                alert('Gracias por registrarte ' + data.name + '!!')
             } else {
                 alert('Los campos no cumplen con los requisitos!')
             }
@@ -59,7 +59,7 @@ var view = {
     button: document.querySelector('#submit'),
     init: function() {
         this.button.addEventListener('click', function() {
-            controller.saveDates()
+            controller.saveData()
         })
     }
 }
