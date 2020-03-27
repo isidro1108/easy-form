@@ -39,9 +39,10 @@ var controller = {
     saveDates: function() {
         if (model.passwordsAreSame()) {
             if (model.fieldsAreComplete()) {
-                model.users.push(model.datesOfUser())
+                let dates = model.datesOfUser()
+                model.users.push(dates)
                 model.cleanFields()
-                alert('Gracias por registrarte!!')
+                alert('Gracias por registrarte ' + dates.name + '!!')
             } else {
                 alert('Los campos no cumplen con los requisitos!')
             }
