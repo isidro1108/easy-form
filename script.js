@@ -40,15 +40,14 @@ var controller = {
         if (model.passwordsAreSame()) {
             if (model.fieldsAreComplete()) {
                 model.users.push(model.datesOfUser())
+                model.cleanFields()
+                alert('Gracias por registrarte!!')
             } else {
                 alert('Los campos no cumplen con los requisitos!')
             }
         } else {
             alert('Las contraseñas no coinciden!')
         }
-    },
-    cleanFields: function() {
-        model.cleanFields()
     },
     init: function() {
         view.init()
@@ -60,7 +59,6 @@ var view = {
     init: function() {
         this.button.addEventListener('click', function() {
             controller.saveDates()
-            controller.cleanFields()
         })
     }
 }
